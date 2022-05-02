@@ -5,6 +5,7 @@
     />
     <post-list
         :posts="posts"
+        @remove="removePost"
     />
 
   </div>
@@ -28,11 +29,14 @@
           }
       },
       methods: {
-        // createPost(post) -> (post) - типа ретерн из одноим. метода в PostForm.vue
+        // createPost(post) -> (post) - типа return из одноим. метода в PostForm.vue
         // далее внутри {} описываю любые манипалюции с полученным post
         createPost(post) {
           this.posts.push(post)
         },
+        removePost(post) {
+          this.posts = this.posts.filter(p => p.id !== post.id)
+        }
       }
     }
 </script>

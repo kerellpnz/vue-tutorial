@@ -1,11 +1,13 @@
 <template>
-  <div>
-    <h3>User List</h3>
+  <div v-if="posts.length > 0">
+    <h3>User Posts</h3>
     <post-item
-        v-for="post in posts" :key="post"
+        v-for="post in posts" :key="post.id"
         :post="post"
+        @remove="$emit('remove', post)"
     />
   </div>
+  <h2 v-else style="color: red">Nihuya net</h2>
 </template>
 
 <script>
