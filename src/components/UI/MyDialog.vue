@@ -1,6 +1,8 @@
 <template>
   <div class="dialog" v-if="show === true" @click.stop="hideDialog">
-      <div @click.stop class="dialog__content">
+<!--    stop - stop propagation, необходимо для того, чтобы функция hideDialog от внешнего
+    div не наследовалась внутренними компонентами.-->
+    <div @click.stop class="dialog__content">
         <slot></slot>
       </div>
   </div>
